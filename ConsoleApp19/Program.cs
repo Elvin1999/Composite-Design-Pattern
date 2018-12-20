@@ -5,26 +5,26 @@ using System.Text;
 using System.Threading.Tasks;
 namespace ConsoleApp19
 {
-    abstract class AbstractItem
+    interface AbstractItem
     {
-        public abstract void Add(AbstractItem item);
-        public abstract void Remove(AbstractItem item);
-        public abstract void Show();
+         void Add(AbstractItem item);
+         void Remove(AbstractItem item);
+         void Show();
     }
     class ItemBox : AbstractItem
     {
         List<AbstractItem> items = new List<AbstractItem>();
-        public override void Add(AbstractItem item)
+        public  void Add(AbstractItem item)
         {
             items.Add(item);
         }
 
-        public override void Remove(AbstractItem item)
+        public  void Remove(AbstractItem item)
         {
             items.Remove(item);
         }
 
-        public override void Show()
+        public  void Show()
         {
             foreach (var item in items)
             {
@@ -41,16 +41,16 @@ namespace ConsoleApp19
         }
         public int Price { get; set; }
         public string Name { get; set; }
-        public override void Add(AbstractItem item)
+        public  void Add(AbstractItem item)
         {
             throw new NotImplementedException();
         }
 
-        public override void Remove(AbstractItem item)
+        public  void Remove(AbstractItem item)
         {
             throw new NotImplementedException();
         }
-        public override void Show()
+        public  void Show()
         {
             Console.WriteLine("================");
             Console.WriteLine($"Name {Name}");
